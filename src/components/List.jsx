@@ -2,40 +2,45 @@ import React, { useState } from "react";
 
 //create your first component
 const List = (props) => {
-	const [inputText, setInputText] = useState("");
-	const [validacion, setValidacion] = useState(true);
+	const [data, setdata] = useState("");
+	const [validation, setValidation] = useState(true);
 
-	const manejarFormulario = (event) => {
-		setInputText(event.target.value);
+	const myForm = (event) => {
+		setdata(event.target.value);
 	};
 
 	const submit = (event) => {
 		event.preventDefault();
-		if (inputText.trim() !== "") {
-			props.newTask(inputText);
-			setInputText("");
-			setValidacion(true);
+		if (data.trim() !== "") {
+			props.newTask(data);
+			setdata("");
+			setValidation(true);
 		} else {
-			setValidacion(false);
+			setValidation(false);
 		}
 	};
 
 	return (
 		<div className="container-fluid">
-			<h1 className="text-center">TODO LIST</h1>
-			<form className="form" onSubmit={submit}>
-				<span>Add new task</span>
+			<h1 className="text-center p-4">My tasks</h1>
+
+			<form className="form " onSubmit={submit}>
+				<div className="p-3">Add new task</div>
 				<input
-					className="mb-2"
-					value={inputText}
-					onChange={manejarFormulario}
+					className=""
+					value={data}
+					onChange={myForm}
 				/>
-				<button>Guardar</button>
+				<div className="my-3">
+					<button className="btn btn-outline-dark">Add task</button>
+				</div>
+
+				{!validation && (
+					<div className="validation"> You forgot to add your task</div>
+				)}
+
 			</form>
 
-			{!validacion && (
-				<div className="validacion"> Please, add a task </div>
-			)}
 		</div>
 	);
 };
