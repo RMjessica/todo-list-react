@@ -1,22 +1,12 @@
-import './App.css';
+import React from 'react'
 import Home from "./components/home.jsx";
 
-function App() {
-  const FontFace = () => {
-    return(
-        <div className="card">
-            <div className="font-face-gm">
-              <Home />
-            </div>
-        </div>
-    )
-  }
-  
+const App = () => {
   return (
-    <div className="App">
-      <FontFace />
+    <div className="container">
+      <Home />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

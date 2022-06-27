@@ -1,29 +1,16 @@
 import React from "react";
+import { IoTrashSharp } from "react-icons/io5";
 
 const Task = (props) => {
 	return (
 		<div>
-			<div className="task">
+			<div className="text-center task pb-3">
 				<span>{props.task}</span>
 				<span
 					onClick={() => {
 						props.del(props.id);
 					}}>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						className="icon icon-tabler icon-tabler-x"
-						width="36"
-						height="36"
-						viewBox="0 0 24 24"
-						strokeWidth="1.5"
-						stroke="#000000"
-						fill="none"
-						strokeLinecap="round"
-						strokeLinejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-						<line x1="18" y1="6" x2="6" y2="18" />
-						<line x1="6" y1="6" x2="18" y2="18" />
-					</svg>
+					<IoTrashSharp className="ms-2"/>
 				</span>
 			</div>
 		</div>
